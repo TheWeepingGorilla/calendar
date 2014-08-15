@@ -59,9 +59,32 @@ def add_event
 end
 
 def edit_event
+
+
 end
 
 def delete_event
+  puts
+  Event.all.each do |event|
+    puts "#{event.id}: #{event.description} at #{event.location}"
+    puts "Starting at #{event.start} and ending at #{event.end}."
+    puts "\n"
+  end
+  puts "Please enter id number of event to delete:"
+  id_to_del = gets.chomp.to_i
+  e_to_destroy = find_event_by_id(id_to_del)
+  e_to_destroy.destroy
+  puts "Event removed. Press return to continue."
+  gets
+end
+
+def find_event_by_id(id)
+  Event.all.each do |event|
+    if event.id = id
+      return event
+    end
+  end
+  return 0
 end
 
 header
