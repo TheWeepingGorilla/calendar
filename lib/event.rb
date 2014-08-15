@@ -2,7 +2,6 @@ class Event < ActiveRecord::Base
   scope :no_start, -> { where(:start => nil)}
   scope :no_end, -> { where(:end => nil)}
 
-
   validates :description, :presence => true, :length => { :maximum => 50 }
   validates :location, :presence => true, :length => { :maximum => 50 }
 
@@ -14,8 +13,3 @@ class Event < ActiveRecord::Base
     self.location = self.location.downcase
   end
 end
-
-
-
-
-
